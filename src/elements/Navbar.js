@@ -12,10 +12,10 @@ const navbar= () =>{
       <Link to="/">Index</Link>
     </li>
     <li>
-      <Link to="/Shop">Cats</Link>
+      <Link to="/Shop">Shop</Link>
     </li>
     <li>
-      <Link to="/Forum">Sheeps</Link>
+      <Link to="/Forum">Forum</Link>
     </li>
   </div>
   );
