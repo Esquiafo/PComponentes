@@ -4,7 +4,7 @@ import styles from '../elements/Navbar.css';
 import CartWidget  from '../elements/CartWidget';
 import { Button, Icon } from 'semantic-ui-react'
 
-const navbar= () =>{
+const Navbar= () =>{
   return (
   <div className='navback'>
      
@@ -40,4 +40,4 @@ const navbar= () =>{
   </div>
   );
 }
-export default navbar;
+export default Navbar;
