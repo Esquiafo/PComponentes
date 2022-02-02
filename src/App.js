@@ -11,7 +11,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <ItemListContainer name="Luzc" />
+      <ItemListContainer />
       <Switch>
         <Route path='/' exact component={Index} />
         <Route path='/shop' component={Shop} />

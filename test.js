@@ -1,8 +1,7 @@
-function mutation(arr) {
-  let word=arr[0]
-  let checker=arr[1]
-  console.log(word)
-  console.log(checker)
-}
+const values = [
+  {id:1, title : "A", price:1, img:"xs"},
+  {id:2, title : "B", price:2, img:"m"},
+  {id:3, title : "C", price:3, img:"x"},
 
-mutation(["hello", "hey"]);
+]
+console.log(values[1].id)
