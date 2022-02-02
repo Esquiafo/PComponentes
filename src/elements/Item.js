@@ -1,12 +1,7 @@
 import React from "react";
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 
 function Item(items) {
-    const values = [
-        {id:1, title : "A", price:1, img:"xs"},
-        {id:2, title : "B", price:2, img:"m"},
-        {id:3, title : "C", price:3, img:"x"}
-      ]
     return(
     <div>
         <Card.Group>
