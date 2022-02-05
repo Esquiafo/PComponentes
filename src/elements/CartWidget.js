@@ -7,18 +7,19 @@ const CartWidget= () =>{
   return (
      
 
-      <Link className='link' to="/shop">
-      <Button animated>
+    <Link className='link' to="/shop">
 
-        <Button.Content visible> 
-          <Link className='link' to="/"> <a className='link'>Cart</a></Link>
-        </Button.Content>
-      <Button.Content hidden>
-        <Icon name='shop' /><a className='link'>:</a><a className='link'>N~</a>
-      </Button.Content>
+    <div className="ui animated fade button"  >
 
-      </Button>
-      </Link>
+    <div className="hidden content">Shop</div>
+
+    <div className="visible content">
+    <i className="shop icon"></i>
+    
+    </div>
+    </div>
+
+    </Link>
        
 
 

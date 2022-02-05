@@ -16,7 +16,7 @@ function ItemList(items) {
             <div className="row">
             <div className='' style={{display: 'flex', visibility: showMe}}>
             {items.itemsArr.map(x => (
-                      <Item id={x.id} titulo={x.titulo} descripcion={x.descripcion} precio={x.precio} img={x.img} />
+                      <Item key={x.id.toString()} id={x.id} titulo={x.titulo} descripcion={x.descripcion} key={x.precio.toString()} precio={x.precio} img={x.img} />
                     ))}
     
             </div>

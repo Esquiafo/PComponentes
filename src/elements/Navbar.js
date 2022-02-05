@@ -7,34 +7,39 @@ import { Button, Icon } from 'semantic-ui-react'
 const Navbar= () =>{
   return (
   <div className='navback'>
-     
-      <Link className='link' to="/">
-      <Button animated>
-      <Button.Content visible> <Link className='link' to="/">Index</Link></Button.Content>
-      <Button.Content hidden>
-        <Icon name='long arrow alternate left' />
-        </Button.Content>
-      </Button>
-      </Link>
+
+  <div className="ui animated button" >
+  <Link  to="/">
+
+  <div className="visible content">Index</div>
+
+  <div className="hidden content">
+  <i className="right arrow icon"></i>
+
+  </div>
+
+  </Link>
+  </div>
 
 
+  <div className="ui animated button" >
+  <Link  to="/forum">
+
+  <div className="visible content">Forum</div>
+
+  <div className="hidden content">
+  <i className="chat icon"></i>
+
+  </div>
+
+  </Link>
+  </div>
 
 
-      <Link className='link' to="/forum">
-      <Button animated>
-
-        <Button.Content visible> 
-         <Link className='link' to="/forum">Forum</Link>
-        </Button.Content>
-      <Button.Content hidden>
-        <Icon name='chat' />
-      </Button.Content>
-
-      </Button>
-      </Link>
+  <CartWidget />
         
 
-      <CartWidget />
+
 
 
   </div>
