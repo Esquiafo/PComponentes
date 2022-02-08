@@ -36,13 +36,6 @@ const ItemDetailContainer = (prop) =>{
         }
       ]);
     }, 2000);
-    setShowMe([
-      {id: 0,
-      titulo: "TEST",
-      descripcion: "TEST",
-      precio: 0,
-      img: "TEST"}
-    ])
   }, [])
 
   return (
