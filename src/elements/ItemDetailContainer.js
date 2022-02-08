@@ -1,12 +1,23 @@
 
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect , useState } from 'react';
 import Product from './Product';
 const ItemDetailContainer = (prop) =>{
  
   
-  const [values, setShowMe] = useState([]);
-  useEffect(() => {
+  const [values, setShowMe] = useState([
+    {      
+      id: 0,
+      titulo: "TEST",
+      descripcion: "TEST",
+      precio: 0,
+      img: "TEST"}
+  ]);
+  const [num, setNum] = useState(0)
+  const Increase = () => {
+    setNum(num===0 ? num+1 : num-1)
+  }
+  useEffect (() => {
     setTimeout(() => {
       setShowMe([
         {
@@ -25,20 +36,27 @@ const ItemDetailContainer = (prop) =>{
         }
       ]);
     }, 2000);
-    setShowMe([])
+    setShowMe([
+      {id: 0,
+      titulo: "TEST",
+      descripcion: "TEST",
+      precio: 0,
+      img: "TEST"}
+    ])
   }, [])
 
   return (
 
   <div style={{backgroundColor: 'lightblue'}}>
-    <button className="ui button">
-    Show detail
-  </button>
-  
-  {values.values.length.map(x => (
-                      <Product key={x.id.toString()} id={x.id} titulo={x.titulo} descripcion={x.descripcion} key={x.precio.toString()} precio={x.precio} img={x.img} />
-                    ))}
+    <button onClick={Increase} className="ui button">
+    Change
+   </button>
 
+      <Product id={{values}.values[num].id} 
+      titulo={{values}.values[num].titulo} descripcion={{values}.values[num].descripcion}
+      precio={{values}.values[num].precio} img={{values}.values[num].img} />
+
+  
   </div>
   );
 }
