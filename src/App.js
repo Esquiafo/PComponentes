@@ -2,6 +2,7 @@ import './App.css';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from "../src/elements/Navbar"
+import ItemDetailContainer from '../src/elements/ItemDetailContainer';
 import ItemListContainer from '../src/elements/ItemListContainer';
 import ItemCount from '../src/elements/ItemCount';
 import Index from "../src/pages/Index"
@@ -11,7 +12,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <ItemListContainer />
+      <ItemDetailContainer />
       <Switch>
         <Route path='/' exact component={Index} />
         <Route path='/shop' component={Shop} />
