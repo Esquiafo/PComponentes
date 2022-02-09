@@ -1,56 +1,43 @@
 
 
 import React, { useEffect , useState } from 'react';
-import Product from './Product';
+import ItemDetail from './ItemDetail.js';
 const ItemDetailContainer = (prop) =>{
- 
-  
-  const [values, setShowMe] = useState([
-    {      
-      id: 0,
-      titulo: "TEST",
-      descripcion: "TEST",
-      precio: 0,
-      img: "TEST"}
-  ]);
-  const [num, setNum] = useState(0)
-  const Increase = () => {
-    setNum(num===0 ? num+1 : num-1)
-  }
-  useEffect (() => {
-    setTimeout(() => {
-      setShowMe([
-        {
-          id: 1,
-          titulo: "A",
-          descripcion: "ABC",
-          precio: 1,
-          img: "XS"
+  const [error, setError] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [items, setItems] = useState([]);
+
+  // Note: the empty deps array [] means
+  // this useEffect will run once
+  // similar to componentDidMount()
+  useEffect(() => {
+    fetch("https://api.nasa.gov/planetary/apod?api_key=uI7IbizothufbOj7Svs8ljq7SuItUwvAaTwYaAw8")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setItems(result);
         },
-        {
-          id: 2,
-          titulo: "Z",
-          descripcion: "XYZ",
-          precio: 2,
-          img: "XL"
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
         }
-      ]);
-    }, 2000);
+      )
   }, [])
 
-  return (
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  } else if (!isLoaded) {
+    return <div>Loading...</div>;
+  } else {
+    console.log(items)
+    return (
+      <div>
+       
+        <ItemDetail  key={items.date} date={items.date} titulo={items.copyright} explanation={items.explanation} img={items.hdurl} />
+        </div>
+    );
+  }
 
-  <div style={{backgroundColor: 'lightblue'}}>
-    <button onClick={Increase} className="ui button">
-    Change
-   </button>
-
-      <Product id={{values}.values[num].id} 
-      titulo={{values}.values[num].titulo} descripcion={{values}.values[num].descripcion}
-      precio={{values}.values[num].precio} img={{values}.values[num].img} />
-
-  
-  </div>
-  );
 }
 export default ItemDetailContainer;

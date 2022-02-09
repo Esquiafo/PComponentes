@@ -1,31 +1,21 @@
 import { render } from "@testing-library/react";
 import React from "react";
+import { Card, Image } from 'semantic-ui-react'
 
-const ItemDetail= (props) => {
-  const [contador, setCounter] = React.useState(parseInt(props.initial))
-
-  const increase = ()=>{
-    setCounter(contador==props.stock ? contador+0 : contador+1)
-  }
-  const decrease = ()=>{
-    setCounter(contador==1 ? contador+0 : contador-1)
-  }
-  const onAdd = () =>{
-   alert("Agregaste "+contador+" item al carrito")
-  }
-
-    return (
+function ItemDetail(items) {
+    console.log(items)
+    return(
     <div>
+       
+    <h1>date: {items.date}</h1>
+    <h1>Creador: {items.titulo}</h1>
 
-    <h3>Contador: {contador}</h3>
-    <h3>Stock: {props.stock}</h3>
-    
-    <button onClick={increase}>Agregar</button>
-    <button onClick={decrease}>Quitar</button>
-    <button onClick={onAdd} >Enviar</button>
+    <h1>explanation: {items.explanation}</h1>
+
+    <h1>img: <Image src={items.img} size='small' /></h1>
+
     </div>
     )
-    
-  }
+}
 
-export default ItemDetail;
+export default ItemDetail
