@@ -1,12 +1,11 @@
-import React from 'react';
-import styles from '../pages/Index.css';
-const Index = () =>{
+import React from "react";
+
+const Home = () => {
   return (
-    <div className='background-index'>
-    <h3>Index</h3>
-    
-    <a>Index</a>
+    <div className="Home">
+      <h1>Home Page</h1>
     </div>
   );
-}
-export default Index;
+};
+
+export default Home;

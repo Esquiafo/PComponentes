@@ -23,9 +23,9 @@ const Navbar= () =>{
 
 
   <div className="ui animated button" >
-  <Link  to="/forum">
+  <Link  to="/category">
 
-  <div className="visible content">Forum</div>
+  <div className="visible content">Category</div>
 
   <div className="hidden content">
   <i className="chat icon"></i>

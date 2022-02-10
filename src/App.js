@@ -8,15 +8,21 @@ import ItemCount from '../src/elements/ItemCount';
 import Index from "../src/pages/Index"
 import Shop from "../src/pages/Shop"
 import Forum from "../src/pages/Forum"
+import Product from "../src/pages/Product"
+import Category from "../src/pages/Category"
+import SingleProduct from './pages/SingleProduct';
+
 function App() {
   return (
     <Router>
       <Navbar />
-      <ItemDetailContainer />
+   
       <Switch>
-        <Route path='/' exact component={Index} />
-        <Route path='/shop' component={Shop} />
-        <Route path='/forum' component={Forum} />
+        <Route exact path='/' exact component={Index} />
+        <Route exact path='/category' component={Category} />
+        <Route exact path="/products" component={Product}/>
+        <Route path="/products/:productId" component={SingleProduct}/>
+
       </Switch>
     </Router>
   );

@@ -7,15 +7,15 @@ const CartWidget= () =>{
   return (
      
 
-    <Link className='link' to="/shop">
+    <Link className='link' to="/products">
 
     <div className="ui animated fade button"  >
 
-    <div className="hidden content">Shop</div>
+    <div className="hidden content"> <i className="shop icon"></i></div>
 
     <div className="visible content">
-    <i className="shop icon"></i>
-    
+    Product
+ 
     </div>
     </div>
 
