@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Category = () => {
   const newArrCat = []
-  const category = data().map(a => newArrCat.push(a[0].category));
+  data().map(a => newArrCat.push(a[0].category));
   const filterCategory = [...new Set(newArrCat)];  
 
   const showCategory = filterCategory.map(x=>{
