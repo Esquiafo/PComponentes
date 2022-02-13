@@ -11,7 +11,7 @@ const Product = () => {
           <Link to={`/products/${product[0].id}`}>{product[0].title}</Link>
         </h3>
         <p>Id: {product[0].id}</p>
-        <p>Category: ${product[0].category}</p>
+        <p>Category: {product[0].category}</p>
         <p>Price: ${product[0].price}</p>
 
         <hr />
@@ -28,4 +28,3 @@ const Product = () => {
 };
 
 export default Product;
-

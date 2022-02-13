@@ -1,3 +1,4 @@
+
 import axios from "axios";
 import { useEffect, useState } from "react";
 const ProductDetails = () => {
@@ -7,7 +8,9 @@ const getData = async () => {
   const response = await axios.get(
     "https://fakestoreapi.com/products?limit=5"
   );
+  
   setData(response.data);
+  
 };
 
 useEffect(() => {
