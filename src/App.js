@@ -11,6 +11,7 @@ import Forum from "../src/pages/Forum"
 import Product from "../src/pages/Product"
 import Category from "../src/pages/Category"
 import SingleProduct from './pages/SingleProduct';
+import SingleCategory from './pages/SingleCategory';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Switch>
         <Route exact path='/' exact component={Index} />
         <Route exact path='/category' component={Category} />
+        <Route path='/category/:categoryId' component={SingleCategory} />
         <Route exact path="/products" component={Product}/>
         <Route path="/products/:productId" component={SingleProduct}/>
 

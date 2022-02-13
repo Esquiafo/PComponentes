@@ -1,39 +1,29 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import data from "./ProductDetails"
 import { Link } from "react-router-dom";
-import SingleCategory from "./SingleCategory";
 
-const Product = () => {
-  const [data, setData] = useState([]);
 
-  const getData = async () => {
-    const response = await axios.get(
-      "https://fakestoreapi.com/products?limit=5"
-    );
-    setData(response.data);
-  };
+const Category = () => {
+  const newArrCat = []
+  const category = data().map(a => newArrCat.push(a[0].category));
+  const filterCategory = [...new Set(newArrCat)];  
 
-  useEffect(() => {
-    getData();
-  }, []);
-  console.log({data}.category)
+  const showCategory = filterCategory.map(x=>{
+    return(
+      <div key={x}>
+          <h3>
+          <Link to={`/category/${x}`}>{x}</Link>
+          </h3>
+      </div>
+    )
+  })
+
+
   return (
-    
-    <div className="App">
-      {data.map(({ id, title, price, category }) => {
-        return (
-          
-
-            <ul className="list-group">
-            <Link to={`products/${id}`}>
-              <SingleCategory key={id} id={id} category={category} title={title} price={price}/>
-            </Link>
-            </ul>
-
-        );
-      })}
+    <div>
+      <h1>Category Page</h1>
+      {showCategory}
     </div>
   );
 };
 
-export default Product;
+export default Category;

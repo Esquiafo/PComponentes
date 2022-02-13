@@ -1,13 +1,10 @@
-
-import axios from "axios";
-import { useEffect, useState } from "react";
 import {useParams} from "react-router-dom"
 import finalData from "./ProductDetails.js"
 
 const SingleProduct = () => {
   const value = useParams();
   const lastValue=[]
-  const mapOnly = finalData().map(x=>x.filter(b=>b.id==value.productId ? lastValue.push(b) : console.log("empty")))
+  finalData().map(x=>x.filter(b=>b.id==value.productId ? lastValue.push(b) : null))
   return (
     <div>
 
