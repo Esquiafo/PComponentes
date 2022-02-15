@@ -34,6 +34,20 @@ const Navbar= () =>{
 
   </Link>
   </div>
+  
+  
+  <div className="ui animated button" >
+  <Link  to="/products">
+
+  <div className="visible content">Product</div>
+
+  <div className="hidden content">
+  <i className="message icon"></i>
+
+  </div>
+
+  </Link>
+  </div>
 
 
   <CartWidget />

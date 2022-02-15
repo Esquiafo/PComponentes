@@ -1,4 +1,5 @@
 import './App.css';
+import {useState} from 'react'
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from "../src/elements/Navbar"
@@ -13,7 +14,9 @@ import Category from "../src/pages/Category"
 import SingleProduct from './pages/SingleProduct';
 import SingleCategory from './pages/SingleCategory';
 
+
 function App() {
+  const [count, setCount] = useState(0)
   return (
     <Router>
       <Navbar />
@@ -23,7 +26,10 @@ function App() {
         <Route exact path='/category' component={Category} />
         <Route path='/category/:categoryId' component={SingleCategory} />
         <Route exact path="/products" component={Product}/>
+       
         <Route path="/products/:productId" component={SingleProduct}/>
+        <Route exact path='/shop' component={Shop} />
+    
 
       </Switch>
     </Router>
