@@ -1,3 +1,4 @@
+import { clear } from '@testing-library/user-event/dist/clear';
 import { createContext, useState} from 'react';
 
 
@@ -15,6 +16,9 @@ const ShopContext = createContext({
     for (let i = 0; i < this.items.length; i++) {
     if (b.id==this.items[i].id) {return true}
     } return false
+    },
+    clear(){
+    this.items=[];
     }
 });
 

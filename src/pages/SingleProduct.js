@@ -21,7 +21,6 @@ const SingleProduct = () => {
     setCounter(contador==1 ? contador+0 : contador-1)
   }
   const onAdd = () =>{
-
   context.addItems({id: stock()[value.productId-1].id, cantidad: contador})
   console.log(context.items)
   }
