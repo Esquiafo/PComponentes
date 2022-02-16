@@ -21,8 +21,9 @@ const SingleProduct = () => {
     setCounter(contador==1 ? contador+0 : contador-1)
   }
   const onAdd = () =>{
-   context.items.push({id: stock()[value.productId-1].id, cantidad: contador},)
-  
+
+  context.addItems({id: stock()[value.productId-1].id, cantidad: contador})
+  console.log(context.items)
   }
 
 
@@ -43,8 +44,8 @@ const SingleProduct = () => {
          <h3>Contador: {contador}</h3>
          <h3>Stock: {stock()[value.productId-1].stock}</h3>
          
-    <button onClick={increase}>Agregar</button>
-    <button onClick={decrease}>Quitar</button>
+    <button onClick={increase}>+</button>
+    <button onClick={decrease}>-</button>
     <button onClick={onAdd} >Enviar</button>
 
 

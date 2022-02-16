@@ -6,8 +6,8 @@ import finalData from "./ProductDetails.js"
 const Shop = () =>{
   const context = useContext(ShopContext);
   const lastValue=finalData()
+  
   const products = context.items.map(product => {
-    console.log(lastValue)
     return (
     <div key={product.id}>
       {lastValue.length!==0? (
