@@ -17,8 +17,13 @@ const ShopContext = createContext({
     if (b.id==this.items[i].id) {return true}
     } return false
     },
+    // Funcion que borra todos los elementos
     clear(){
     this.items=[];
+    },
+    // Funcion que borra un ID especifico
+    eliminarId(h){
+        this.items.splice(h,h+1)
     }
 });
 

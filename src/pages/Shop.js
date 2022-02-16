@@ -6,15 +6,22 @@ import finalData from "./ProductDetails.js"
 const Shop = () =>{
   const context = useContext(ShopContext);
   const lastValue=finalData()
-  const fullClear = () =>{
+  let count = -1
+  const deleteId = (h)=>{
+    context.eliminarId(h.target.value)
+}
+  const fullClear = ()=>{
     context.clear()
-    }
+}
+
+
   const products = context.items.map(product => {
+    count++
     return (
     <div key={product.id}>
       {lastValue.length!==0? (
       <div>
-        
+      <button onClick={deleteId} value={count} >Borrar item</button>
       <ul>
         <li>Id: {product.id}</li>
         <li>Cantidad: {product.cantidad}</li>
@@ -22,16 +29,16 @@ const Shop = () =>{
         <li>Precio total: ${(lastValue[product.id-1][0].price)*(product.cantidad)}</li>
       </ul>
         <hr />
-      </div>
-      
-    ) : (
+    </div>
+    )  : (
       <div>
    <h1>Cargando</h1>
     </div>
     )}
-    
+      
   </div>
   );
+
 })
 
   return (
@@ -39,9 +46,9 @@ const Shop = () =>{
      
     {products.length!==0 ? (
       <div>
-     <button onClick={fullClear} >Borrar todo</button>
+      <button onClick={fullClear} >Borrar todo</button>
+      <hr />
      {products}
-     
       </div>
       
     ) : (<div>
