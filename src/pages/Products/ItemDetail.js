@@ -1,19 +1,17 @@
 import {useParams} from "react-router-dom"
 import finalData from "../../Components/ItemApi.js"
 import React, { useContext, useState } from 'react';
-
 import CartContext from "../../Context/CartContext"
 import stock from "../../Components/Stock"
 
 
 
 const ItemDetail = () => {
-
+   
   const value = useParams();
   const [contador, setCounter] = useState(1)
   const lastValue=[]
   const context = useContext(CartContext);
-  
   const increase = ()=>{
     setCounter(contador==stock()[value.productId-1].stock ? contador+0 : contador+1)
   }
@@ -21,13 +19,11 @@ const ItemDetail = () => {
     setCounter(contador==1 ? contador+0 : contador-1)
   }
   const onAdd = () =>{
-
+    
     context.addItems({id: stock()[value.productId-1].id, cantidad: contador})
-
+    
   }
 
-
- 
   finalData().map(x=>x.filter(b=>b.id==value.productId ? lastValue.push(b) : null))
 
   return (
@@ -46,11 +42,8 @@ const ItemDetail = () => {
          
     <button onClick={increase}>+</button>
     <button onClick={decrease}>-</button>
+
     <button onClick={onAdd} >Enviar</button>
-
-
-
-
 
        </div>
        

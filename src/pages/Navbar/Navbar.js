@@ -1,10 +1,11 @@
 import React from 'react';
-import {  Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import styles from './Navbar.css';
 import CartWidget  from './CartWidget';
-import { Button, Icon } from 'semantic-ui-react'
+
 
 const Navbar= () =>{
+
   return (
   <div className='navback'>
 
@@ -49,8 +50,18 @@ const Navbar= () =>{
   </Link>
   </div>
 
+  {true ? (
+    <Link className='link' to="/cart">
 
-  <CartWidget />
+          <CartWidget />
+
+    
+    </Link>
+  ):(
+    <div>
+    </div>
+  )}
+  
         
 
 

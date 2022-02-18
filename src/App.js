@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Navbar from "./pages/Navbar/Navbar"
 import Index from "../src/pages/Index/Index"
-import Shop from "../src/pages/Shop/Shop"
+import Cart from "../src/pages/Shop/Cart"
 import Product from "./pages/Products/ItemDetailList"
 import Category from "./pages/Category/Category"
 import SingleProduct from './pages/Products/ItemDetail';
@@ -23,7 +23,7 @@ function App() {
         <Route exact path="/products" component={Product}/>
         
         <Route path="/products/:productId" component={SingleProduct}/>
-        <Route exact path='/shop' component={Shop} />
+        <Route exact path='/cart' component={Cart} />
     
 
       </Switch>

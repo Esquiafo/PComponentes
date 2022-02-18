@@ -1,17 +1,19 @@
 import React, {useContext} from 'react';
-import styles from './Shop.css';
 import CartContext from '../../Context/CartContext';
 import finalData from "../../Components/ItemApi.js"
-
-const Shop = () =>{
+import { Link } from 'react-router-dom';
+const Cart = () =>{
   const context = useContext(CartContext);
   const lastValue=finalData()
   let count = -1
+
   const deleteId = (h)=>{
-    context.eliminarId(h.target.value)
+    context.eliminarId(h.target.value);
+    
 }
   const fullClear = ()=>{
     context.clear()
+    
 }
 
 
@@ -21,7 +23,9 @@ const Shop = () =>{
     <div key={product.id}>
       {lastValue.length!==0? (
       <div>
+      <Link  to="/cart">
       <button onClick={deleteId} value={count} >Borrar item</button>
+      </Link>
       <ul>
         <li>Id: {product.id}</li>
         <li>Cantidad: {product.cantidad}</li>
@@ -46,7 +50,9 @@ const Shop = () =>{
      
     {products.length!==0 ? (
       <div>
+      <Link  to="/cart">
       <button onClick={fullClear} >Borrar todo</button>
+      </Link>
       <hr />
      {products}
       </div>
@@ -58,4 +64,4 @@ const Shop = () =>{
    </div>
   );
 };
-export default Shop;
+export default Cart;

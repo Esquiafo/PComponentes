@@ -11,9 +11,9 @@ const CartContext = createContext({
          : this.items.push(x)
         },
         // Funcion que busca un ID repetido
-          lookItem (b) {
+        lookItem (b) {
         for (let i = 0; i < this.items.length; i++) {
-        if (b.id==this.items[i].id) {return true}
+        if (b.id===this.items[i].id) {return true}
         } return false
         },
         // Funcion que borra todos los elementos
@@ -23,10 +23,7 @@ const CartContext = createContext({
         // Funcion que borra un ID especifico
               eliminarId (h) {
             this.items.splice(h,h+1)
-        },
-             cantityItems () {
-            return this.items.length
-        },
+        }
 });
 
 export default CartContext;
