@@ -49,7 +49,7 @@ const Navbar= () =>{
 
   </Link>
   </div>
-
+  {/* Problemas para taer el numero actualizado */}
   {true ? (
     <Link className='link' to="/cart">
 
@@ -58,8 +58,7 @@ const Navbar= () =>{
     
     </Link>
   ):(
-    <div>
-    </div>
+    null
   )}
   
         
