@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link} from "react-router-dom";
 import styles from './Navbar.css';
 import CartWidget  from './CartWidget';
-
+import CartContext from '../../Context/CartContext'
 
 const Navbar= () =>{
-
+  const context = useContext(CartContext)
   return (
   <div className='navback'>
 
