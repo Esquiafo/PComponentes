@@ -1,4 +1,4 @@
-import data from "./ProductDetails"
+import data from "../../Components/ItemApi"
 import { Link } from "react-router-dom";
 
 

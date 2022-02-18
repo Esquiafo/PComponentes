@@ -1,7 +1,7 @@
 import React from 'react';
 import {  Link } from "react-router-dom";
-import styles from '../elements/Navbar.css';
-import CartWidget  from '../elements/CartWidget';
+import styles from './Navbar.css';
+import CartWidget  from './CartWidget';
 import { Button, Icon } from 'semantic-ui-react'
 
 const Navbar= () =>{

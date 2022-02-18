@@ -1,5 +1,5 @@
 import {useParams} from "react-router-dom"
-import finalData from "./ProductDetails.js"
+import finalData from "../../Components/ItemApi.js"
 import { Link } from "react-router-dom";
 
 const SingleCategory = () => {

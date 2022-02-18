@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
-import styles from '../pages/Shop.css';
-import ShopContext from './ShopContext';
-import finalData from "./ProductDetails.js"
+import styles from './Shop.css';
+import CartContext from '../../Context/CartContext';
+import finalData from "../../Components/ItemApi.js"
 
 const Shop = () =>{
-  const context = useContext(ShopContext);
+  const context = useContext(CartContext);
   const lastValue=finalData()
   let count = -1
   const deleteId = (h)=>{

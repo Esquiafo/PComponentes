@@ -1,18 +1,18 @@
 import {useParams} from "react-router-dom"
-import finalData from "./ProductDetails.js"
+import finalData from "../../Components/ItemApi.js"
 import React, { useContext, useState } from 'react';
-import {NewItem} from "./NewItem";
-import ShopContext from "./ShopContext"
-import stock from "./Stock"
-import Shop from "./Shop.js";
+
+import CartContext from "../../Context/CartContext"
+import stock from "../../Components/Stock"
 
 
-const SingleProduct = () => {
+
+const ItemDetail = () => {
 
   const value = useParams();
   const [contador, setCounter] = useState(1)
   const lastValue=[]
-  const context = useContext(ShopContext);
+  const context = useContext(CartContext);
   
   const increase = ()=>{
     setCounter(contador==stock()[value.productId-1].stock ? contador+0 : contador+1)
@@ -22,7 +22,7 @@ const SingleProduct = () => {
   }
   const onAdd = () =>{
 
-  context.addItems({id: stock()[value.productId-1].id, cantidad: contador})
+    context.addItems({id: stock()[value.productId-1].id, cantidad: contador})
 
   }
 
@@ -64,4 +64,4 @@ const SingleProduct = () => {
 
 };
 
-export default SingleProduct;
+export default ItemDetail;

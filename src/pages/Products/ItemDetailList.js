@@ -1,8 +1,8 @@
-import data from "./ProductDetails";
+import data from "../../Components/ItemApi";
 import { Link } from "react-router-dom";
 
 
-const Product = () => {
+const Items = () => {
   const products = data().map(product => {
     
     return (
@@ -27,4 +27,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default Items;

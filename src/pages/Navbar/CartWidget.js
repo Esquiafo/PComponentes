@@ -1,10 +1,13 @@
 import React, {useContext} from 'react';
 import {  Link } from "react-router-dom";
-import ShopContext from "../pages/ShopContext"
+import CartContext from "../../Context/CartContext"
 
 
 const CartWidget= () =>{
-  const context = useContext(ShopContext);
+  
+  const context = useContext(CartContext)
+  const numberCart = context.cantityItems()
+
   return (
  
 
@@ -12,11 +15,16 @@ const CartWidget= () =>{
 
     <div className="ui animated fade button"  >
 
-    <div className="hidden content">Shop: {context.items.length}</div>
+    <div className="hidden content"><i className="shop icon"></i></div>
 
     <div className="visible content">
-    
-    <i className="shop icon"></i>
+    Shop: {true ? (
+     <span>{numberCart}</span>
+ 
+    ): (
+      0
+    )}
+  
     </div>
     </div>
 

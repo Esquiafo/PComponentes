@@ -1,7 +1,7 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
-const ProductDetails = () => {
+const ItemApi = () => {
 const [data, setData] = useState([]);
 
 const getData = async () => {
@@ -28,4 +28,4 @@ return finalData
 
 }
 
-export default ProductDetails
+export default ItemApi
