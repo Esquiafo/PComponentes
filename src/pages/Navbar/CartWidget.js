@@ -1,22 +1,24 @@
 
 import React, { useContext } from "react";
 import CartContext from "../../Context/CartContext";
+import { Link } from "react-router-dom";
 const CartWidget= () =>{
   const context = useContext(CartContext)
-  return (
-    <div className="ui animated fade button"  >
-    <div className="hidden content"><i className="shop icon"></i></div>
-    <div className="visible content">
-    {/* Aca iria el numero actualizado */}
-    Shop: {context.items.length}
+  const itemspush = 0
+  const values = context.items.map(x => itemspush+x.cantidad)
+  return(
+    <div className="ui animated button" >
+    <Link  to="/products">
+  
+    <div className="visible content">Shop: {values}</div>
+  
+    <div className="hidden content">
+    <i className="message icon"></i>
   
     </div>
+  
+    </Link>
     </div>
-
- 
-       
-
-
-  );
-}
+  )
+};
 export default CartWidget;

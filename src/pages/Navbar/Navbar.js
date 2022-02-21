@@ -50,11 +50,10 @@ const Navbar= () =>{
   </Link>
   </div>
   {/* Problemas para taer el numero actualizado */}
-  {true ? (
+  {context.items.length > 0 ? (
     <Link className='link' to="/cart">
 
           <CartWidget />
-
     
     </Link>
   ):(
