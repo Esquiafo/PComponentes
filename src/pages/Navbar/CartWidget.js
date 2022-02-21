@@ -13,7 +13,7 @@ const CartWidget= () =>{
     <div className="visible content">Shop: {values}</div>
   
     <div className="hidden content">
-    <i className="message icon"></i>
+    <i className="shop icon"></i>
   
     </div>
   

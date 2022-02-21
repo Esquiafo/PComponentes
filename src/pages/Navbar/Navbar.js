@@ -43,7 +43,7 @@ const Navbar= () =>{
   <div className="visible content">Product</div>
 
   <div className="hidden content">
-  <i className="message icon"></i>
+  <i className="food icon"></i>
 
   </div>
 
@@ -54,6 +54,7 @@ const Navbar= () =>{
     <Link className='link' to="/cart">
 
           <CartWidget />
+
     
     </Link>
   ):(
