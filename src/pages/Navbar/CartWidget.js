@@ -4,13 +4,13 @@ import CartContext from "../../Context/CartContext";
 import { Link } from "react-router-dom";
 const CartWidget= () =>{
   const context = useContext(CartContext)
-  const itemspush = 0
-  const values = context.items.map(x => itemspush+x.cantidad)
+  let itemspush = 0
+  context.items.map(x => itemspush=x.cantidad+itemspush)
   return(
     <div className="ui animated button" >
-    <Link  to="/products">
+    <Link  to="/cart">
   
-    <div className="visible content">Shop: {values}</div>
+    <div className="visible content">Shop: {itemspush}</div>
   
     <div className="hidden content">
     <i className="shop icon"></i>
