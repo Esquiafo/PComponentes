@@ -1,29 +1,39 @@
-import data from "../../Components/ItemApi";
+import FireBaseApi from "../../Components/FirebaseApi"
 import { Link } from "react-router-dom";
 
 
 const Items = () => {
-  const products = data().map(product => {
-    
-    return (
-      <div key={product[0].id}>
-        <h3>
-          <Link to={`/products/${product[0].id}`}>{product[0].title}</Link>
-        </h3>
-        <p>Id: {product[0].id}</p>
-        <p>Category: {product[0].category}</p>
-        <p>Price: ${product[0].price}</p>
-
-        <hr />
-      </div>
-    );
-  });
-
+  const data = FireBaseApi()
+  let products
+  if (data!==undefined) {
+    products = data.map(product => {
+      return (
+        <div key={product.id}>
+          <h3>
+            <Link to={`/products/${product.id}`}>{product.title}</Link>
+          </h3>
+          <p>Id: {product.id}</p>
+          <p>Category: {product.category}</p>
+          <p>Price: ${product.price}</p>
+  
+          <hr />
+        </div>
+      );
+    });
+  }
+  
   return (
-    <>
-      <h1>Products Page</h1>
-      {products}
-    </>
+    <div>
+      {data==undefined ? (
+        <div>
+          Cargando
+        </div>
+      ) : (
+        <div>
+          {products}
+        </div>
+      )}
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import CartContext from '../../Context/CartContext';
-import finalData from "../../Components/ItemApi.js"
+import finalData from "../../Components/FirebaseApi"
 import { Link } from 'react-router-dom';
 const Cart = () =>{
   const context = useContext(CartContext);
@@ -19,9 +19,10 @@ const Cart = () =>{
 
   const products = context.items.map(product => {
     count++
+
     return (
     <div key={product.id}>
-      {lastValue.length!==0? (
+      {lastValue!==undefined? (
       <div>
       <Link  to="/cart">
       <button onClick={deleteId} value={count} >Borrar item</button>
@@ -29,8 +30,8 @@ const Cart = () =>{
       <ul>
         <li>Id: {product.id}</li>
         <li>Cantidad: {product.cantidad}</li>
-        <li>{lastValue[product.id-1][0].title}</li>
-        <li>Precio total: ${(lastValue[product.id-1][0].price)*(product.cantidad)}</li>
+        <li>{lastValue[product.id-1].title}</li>
+        <li>Precio total: ${(lastValue[product.id-1].price)*(product.cantidad)}</li>
       </ul>
         <hr />
     </div>

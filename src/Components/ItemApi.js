@@ -6,7 +6,7 @@ const [data, setData] = useState([]);
  
 const getData = async () => {
   const response = await axios.get(
-    "https://fakestoreapi.com/products?limit=3"
+    "https://fakestoreapi.com/products?limit=25"
   );
   
   setData(response.data);

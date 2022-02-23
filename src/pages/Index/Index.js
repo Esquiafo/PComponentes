@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
+import FireBaseApi from "../../Components/FirebaseApi"
+import {Link} from 'react-router-dom'
 
 const Home = () => {
+  
+  
   return (
-    <div className="Home">
-      <h1>Home Page</h1>
+    <div>
+     <h1>INDEX</h1>
     </div>
   );
 };
