@@ -1,9 +1,8 @@
 import React, {useContext} from 'react';
-import {Link} from "react-router-dom";
+import {Link,Switch} from "react-router-dom";
 import styles from './Navbar.css';
 import CartWidget  from './CartWidget';
 import CartContext from '../../Context/CartContext'
-
 const Navbar= () =>{
   const context = useContext(CartContext)
   return (
@@ -49,14 +48,14 @@ const Navbar= () =>{
 
   </Link>
   </div>
+
   {/* Problemas para taer el numero actualizado */}
   {context.items.length > 0 ? (
-    <Link className='link' to="/cart">
 
+    <Switch>
           <CartWidget />
-
-    
-    </Link>
+          </Switch>
+  
   ):(
     null
   )}
