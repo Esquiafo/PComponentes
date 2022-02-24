@@ -1,14 +1,15 @@
 import {useParams} from "react-router-dom"
-import finalData from "../../Components/ItemApi.js"
+import finalData from "../../Components/FirebaseApi"
 import { Link } from "react-router-dom";
 
 const SingleCategory = () => {
-  
+  const filterCategory = finalData()
   const value = useParams();
   const newArr=[]
-  finalData().map(x=>x.filter(b=>b.category==value.categoryId ? newArr.push(b) : null))
+  if (filterCategory!==undefined) {
+    filterCategory.filter(b=>b.category==value.categoryId ? newArr.push(b) : null)
+  }
   const lastFilter = newArr.map(x=> {
-    
     return (
       <div key={x.id}>
         <h3>
@@ -24,9 +25,9 @@ const SingleCategory = () => {
   })
   return (
   <div>
-    {lastFilter.length!==0 ? (
+    {filterCategory!==undefined ? (
       <div>
-      {lastFilter}
+     {lastFilter}
       </div>
     ) : (
       <div>
@@ -35,10 +36,6 @@ const SingleCategory = () => {
     )}
    </div>
   )
-
-  
-
-  
 };
 
 export default SingleCategory;

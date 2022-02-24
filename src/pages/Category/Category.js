@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 
 
 const Category = () => {
+  const test = data()
   const newArrCat = []
+  let showCategory;
   if (data()!==undefined) {
-    data().map(a => newArrCat.push(a.category));
-    const filterCategory = [...new Set(newArrCat)];  
-
-    const showCategory = filterCategory.map(x=>{
+    test.map(a => newArrCat.push(a.category));
+    const filterCategory = [...new Set(newArrCat)];
+    showCategory = filterCategory.map(x=>{
       return(
         <div key={x}>
             <h3>
@@ -24,7 +25,15 @@ const Category = () => {
   return (
     <div>
       <h1>Category Page</h1>
-      
+      {test!==undefined ? (
+        <div>
+        {showCategory}
+        </div>
+      ) : (
+      <div>
+        <h1>Cargando</h1>
+      </div>
+      )}
     </div>
   );
 };
