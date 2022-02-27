@@ -1,4 +1,4 @@
-import data from "../../Components/FirebaseApi"
+import data from "../../Components/ProductsApi"
 import { Link } from "react-router-dom";
 
 

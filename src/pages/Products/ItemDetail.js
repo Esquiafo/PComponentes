@@ -1,8 +1,7 @@
-import {useParams} from "react-router-dom"
-import finalData from "../../Components/FirebaseApi.js"
+import {Link, useParams} from "react-router-dom"
+import finalData from "../../Components/ProductsApi.js"
 import React, { useContext, useState } from 'react';
 import CartContext from "../../Context/CartContext"
-import stock from "../../Components/Stock"
 
 
 
@@ -13,14 +12,14 @@ const ItemDetail = () => {
   const filterItem=[]
   const context = useContext(CartContext);
   const increase = ()=>{
-    setCounter(contador==stock()[value.productId-1].stock ? contador+0 : contador+1)
+    setCounter(contador==ultimateData[value.productId-1].stock ? contador+0 : contador+1)
   }
   const decrease = ()=>{
     setCounter(contador==1 ? contador+0 : contador-1)
   }
   const onAdd = () =>{
-    
-    context.addItems({id: stock()[value.productId-1].id, cantidad: contador})
+  
+    context.addItems({id: ultimateData[value.productId-1].id, cantidad: contador, price:ultimateData[value.productId-1].price, title: ultimateData[value.productId-1].title })
     
   }
 
@@ -40,13 +39,13 @@ const ItemDetail = () => {
          <li>Price = {filterItem[0][0].price}</li>
          </ul>
          <h3>Contador: {contador}</h3>
-         <h3>Stock: {stock()[value.productId-1].stock}</h3>
+         <h3>Stock: {ultimateData[value.productId-1].stock}</h3>
          
     <button onClick={increase}>+</button>
     <button onClick={decrease}>-</button>
-
+    <Link to="/cart" >
     <button onClick={onAdd} >Enviar</button>
-
+    </Link>
        </div>
        
       ) : (

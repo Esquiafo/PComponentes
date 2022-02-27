@@ -1,4 +1,4 @@
-import FireBaseApi from "../../Components/FirebaseApi"
+import FireBaseApi from "../../Components/ProductsApi"
 import { Link } from "react-router-dom";
 
 

@@ -1,5 +1,5 @@
 import {useParams} from "react-router-dom"
-import finalData from "../../Components/FirebaseApi"
+import finalData from "../../Components/ProductsApi"
 import { Link } from "react-router-dom";
 
 const SingleCategory = () => {

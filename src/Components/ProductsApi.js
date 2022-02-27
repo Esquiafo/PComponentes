@@ -15,7 +15,7 @@ const app = initializeApp({
 const db = getFirestore();
 
 const FireBaseApi = () =>{
-    const [data, setData] = useState();
+const [data, setData] = useState();
 useEffect(() => {
   const getProducts = async () =>{
       const arrEmp= [];
