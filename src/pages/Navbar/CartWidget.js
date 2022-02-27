@@ -7,18 +7,24 @@ const CartWidget= () =>{
   let itemspush = 0
   context.items.map(x => itemspush=x.cantidad+itemspush)
   return(
-    <div className="ui animated button" >
-    <Link  to="/cart">
+   
+
+  <button type="button" className="btn position-relative ui animated button">
+
+  <div className="visible content">
+   Shop <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">{itemspush}</span>
+
+  </div>
+  <div className="hidden content">
+  <i className="shop icon"></i>
+  </div>
+
   
-    <div className="visible content">Shop: {itemspush}</div>
+  </button>
+      
   
-    <div className="hidden content">
-    <i className="shop icon"></i>
   
-    </div>
-  
-    </Link>
-    </div>
+   
   )
 };
 export default CartWidget;

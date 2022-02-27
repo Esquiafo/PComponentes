@@ -2,6 +2,7 @@ import {Link, useParams} from "react-router-dom"
 import finalData from "../../Components/ProductsApi.js"
 import React, { useContext, useState } from 'react';
 import CartContext from "../../Context/CartContext"
+import { Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
 
 
 
@@ -49,7 +50,13 @@ const ItemDetail = () => {
        </div>
        
       ) : (
-       <h1>Cargando</h1>
+        
+        <div className="d-flex col-md-12  justify-content-center">
+          <br></br>
+        <div style={{width: "100px",  height: "100px"}}  className="spinner-border" role="status">
+          <span  className="visually-hidden">Loading...</span>
+        </div>
+      </div>
      )}
     </div>
   )
