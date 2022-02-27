@@ -1,5 +1,5 @@
 import { FirebaseError, initializeApp } from 'firebase/app';
-import { collection, addDoc, getFirestore, getDoc } from "firebase/firestore"; 
+import { collection, addDoc, getFirestore, updateDoc,doc } from "firebase/firestore"; 
 
 
 
@@ -16,6 +16,7 @@ const PushApi = (props) =>{
 let finalPrice=0;
 props.items.map(x=>finalPrice=finalPrice+(x.price*x.cantidad))
  const db = getFirestore();
+ 
 
 // Add a new document with a generated id.
 addDoc(collection(db, "order"), {
@@ -24,11 +25,17 @@ addDoc(collection(db, "order"), {
     date: new Date().toLocaleString() + "",
     total: finalPrice, 
     phone: props.phone, 
-  }
-
-  
-  )
+  })
+ 
 .then(function(docRef) {
+    
+    props.items.map(x=>{
+    let productsUpdated = doc(db, "products", x.id)
+    updateDoc(productsUpdated, {
+        stock: 0
+      });
+    })
+   
     alert("Tu ID de compra es " + docRef.id)
 })
 .catch(function(error) {
