@@ -1,5 +1,5 @@
-import { FirebaseError, initializeApp } from 'firebase/app';
-import { collection, addDoc, getFirestore, updateDoc,doc } from "firebase/firestore"; 
+import {  initializeApp } from 'firebase/app';
+import { collection, addDoc, getFirestore,query, updateDoc,doc,getDocs } from "firebase/firestore"; 
 
 
 
@@ -29,10 +29,12 @@ addDoc(collection(db, "order"), {
  
 .then(function(docRef) {
     
-    props.items.map(x=>{
+    props.items.map(x=>{   
+
+    let stocked = parseInt(x.cantidad);
     let productsUpdated = doc(db, "products", x.id)
     updateDoc(productsUpdated, {
-        stock: 0
+        stock: (x.stock - stocked)
       });
     })
    

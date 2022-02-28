@@ -1,7 +1,7 @@
 
-import { FirebaseError, initializeApp } from "firebase/app"
+import {  initializeApp } from "firebase/app"
 import { useState, useEffect } from 'react';
-import {collection, getFirestore, query, where, getDocs, querySnapshot } from 'firebase/firestore';
+import {collection, getFirestore, query, getDocs } from 'firebase/firestore';
 
 
 const app = initializeApp({
@@ -20,17 +20,12 @@ useEffect(() => {
   const getProducts = async () =>{
       const arrEmp= [];
       const q = query(collection(db, "products"));
-      
       const querySnapshot = await getDocs(q); 
-      
       querySnapshot.forEach((doc) => {
-        arrEmp.push({...doc.data(), id:doc.id})
-           
+        arrEmp.push({...doc.data(), id:doc.id}) 
       })
       setData(arrEmp)
   }
-  
-
   getProducts();
 },[]);
 

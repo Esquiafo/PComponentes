@@ -59,7 +59,7 @@ const Items = () => {
           Cargando
         </div>
       ) : (
-        <div className="d-flex  col-md-12 flex-wrap ">
+        <div className="d-flex  flex-wrap ">
           {products}
         </div>
       )}
