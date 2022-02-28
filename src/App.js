@@ -18,10 +18,11 @@ function App() {
     </Switch>
       <Switch>
         <Route exact path='/' exact component={Index} />
-        <Route exact path='/category' component={Category} />
-        <Route path='/category/:categoryId' component={SingleCategory} />
+  
         <Route exact path="/products" component={Product}/>
-        <Route path="/products/:productId" component={SingleProduct}/>
+        <Route exact path="/products/:productId" component={SingleProduct}/>
+        <Route path='/category/:categoryId' component={SingleCategory} />
+
         <Route exact path='/cart' component={Cart} />
       </Switch>
     </Router>

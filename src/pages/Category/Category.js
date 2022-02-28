@@ -12,9 +12,9 @@ const Category = () => {
     showCategory = filterCategory.map(x=>{
       return(
         <div key={x}>
-            <h3>
+          
             <Link to={`/category/${x}`}>{x}</Link>
-            </h3>
+           
         </div>
       )
     })
@@ -24,15 +24,14 @@ const Category = () => {
 
   return (
     <div>
-      <h1>Category Page</h1>
       {test!==undefined ? (
         <div>
         {showCategory}
         </div>
       ) : (
-      <div>
+     
         <h1>Cargando</h1>
-      </div>
+     
       )}
     </div>
   );

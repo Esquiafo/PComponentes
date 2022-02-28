@@ -38,7 +38,9 @@ const ItemDetail = () => {
           No disponible
         </h1>
       ) : (
+        
         <div key={filterItem[0][0].id}>
+        <Image className="flex-wrap center " src={`${filterItem[0][0].img}`}size="small" rounded />
         <ul>
         <li>ID = {filterItem[0][0].id}</li>
         <li>Product = {filterItem[0][0].title}</li>

@@ -1,26 +1,26 @@
 import FireBaseApi from "../../Components/ProductsApi"
 import { Link } from "react-router-dom";
 import {Image,  Divider, Header, Icon, Table} from "semantic-ui-react"
-
+import Category from '../Category/Category'
 
 const Items = () => {
   const data = FireBaseApi()
   let products
   if (data!==undefined) {
-    products = data.map(product => {
+    products = data.map(product => 
+      
+      {
       
       return (
     
-    <div style={{padding: "25px 25px 25px 25px"}} className="d-flex flex-wrap shadow-sm p-3 mb-5 bg-body rounded" key={product.id}>
+    <div style={{padding: "0px 10px 0px 10px"}} className="d-flex" key={product.id}>
+      
+  
+    <Image style={{width:"250px", height: "250px"}}src={`${product.img}`}size="" rounded />
 
-    <Divider horizontal>
-    <Image className="flex-wrap center " src={`${product.img}`}size="small" rounded />
-
-      <Header as='h4'>
-        <Icon name='bar chart' />
-        Specifications
-      </Header>
+     
       <Table definition>
+     
       <Table.Body>
         <Table.Row>
           <Table.Cell width={10}>Producto</Table.Cell>
@@ -54,7 +54,7 @@ const Items = () => {
         </Table.Row>
       </Table.Body>
     </Table>
-    </Divider>
+  
 
         </div>
    
@@ -63,16 +63,22 @@ const Items = () => {
   }
   
   return (
-    <div className="null">
+    <div className="d-flex">
+      
       {data==undefined ? (
         <div>
           Cargando
         </div>
       ) : (
-        <div className="d-flex  flex-wrap ">
-          {products}
-        </div>
+
+       <div className="col-md-11">
+       {products}
+       </div>
+
+       
+     
       )}
+         <Category />
     </div>
   );
 };

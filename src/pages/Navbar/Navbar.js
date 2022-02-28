@@ -13,7 +13,7 @@ const Navbar= () =>{
   <button className="btn ui animated button" type="button">
     
   <Link  to="/">
-  <div className="visible content">Index</div>
+  <div className="visible content">Inicio</div>
   <div className="hidden content">
   <i className="right arrow icon"></i>
   </div>
@@ -21,7 +21,7 @@ const Navbar= () =>{
 
   </button>
 
-  <button className="btn ui animated button" type="button">
+  {/* <button className="btn ui animated button" type="button">
 
   <Link  to="/category">
   <div className="visible content">Category</div>
@@ -30,12 +30,12 @@ const Navbar= () =>{
   </div>
   </Link>
 
-  </button>
+  </button> */}
 
   <button className="btn ui animated button" type="button">
     
   <Link  to="/products">
-  <div className="visible content">Product</div>
+  <div className="visible content">Productos</div>
   <div className="hidden content">
   <i className="tag icon"></i>
   </div>
