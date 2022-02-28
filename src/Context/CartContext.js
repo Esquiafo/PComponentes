@@ -17,13 +17,28 @@ const CartContext = createContext({
         } return false
         },
         // Funcion que borra todos los elementos
-             clear() {
+        clear() {
         this.items=[];
         },
         // Funcion que borra un ID especifico
-              eliminarId (h) {
-            this.items.splice(h,h+1)
-        }
+        eliminarId (h) {
+          this.items.splice(h,h+1)
+        },
+        upCant (h) {
+          
+          if(this.items[h].cantidad==this.items[h].stock){
+            alert("No se puede aumentar mas")
+          }else{
+            this.items[h].cantidad++
+          }
+        },
+        downCant (h) {
+          this.items[h].cantidad--
+          if (this.items[h].cantidad==0) {
+            this.eliminarId(h)
+          }
+        },
+        
 });
 
 export default CartContext;

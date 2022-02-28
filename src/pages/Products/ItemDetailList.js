@@ -16,14 +16,14 @@ const Items = () => {
     <div style={{padding: "0px 10px 0px 10px"}} className="d-flex" key={product.id}>
       
   
-    <Image style={{width:"250px", height: "250px"}}src={`${product.img}`}size="" rounded />
+    <Image style={{width:"250px", height: "250px"}} src={`${product.img}`} rounded />
 
      
-      <Table definition>
+      <Table definition >
      
       <Table.Body>
         <Table.Row>
-          <Table.Cell width={10}>Producto</Table.Cell>
+          <Table.Cell width={2}>Producto</Table.Cell>
           <Table.Cell> 
           {product.stock <=0 ? (
         <div>

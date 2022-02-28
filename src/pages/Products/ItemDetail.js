@@ -20,7 +20,7 @@ const ItemDetail = () => {
   }
   const onAdd = () =>{
   
-    context.addItems({id: ultimateData[value.productId-1].id, cantidad: contador, price:ultimateData[value.productId-1].price, title: ultimateData[value.productId-1].title, stock: ultimateData[value.productId-1].stock })
+    context.addItems({img: ultimateData[value.productId-1].img, id: ultimateData[value.productId-1].id, cantidad: contador, price:ultimateData[value.productId-1].price, title: ultimateData[value.productId-1].title, stock: ultimateData[value.productId-1].stock })
     
   }
 

@@ -49,7 +49,7 @@ const SingleCategory = () => {
         </Table.Row>
         <Table.Row>
           <Table.Cell>Disponibles</Table.Cell>
-          <Table.Cell>{x.stock}</Table.Cell>
+          <Table.Cell>{x.stock <= 0 ? (<p>No hay stock</p>) : (x.stock)}</Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
