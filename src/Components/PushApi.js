@@ -1,5 +1,5 @@
 import {  initializeApp } from 'firebase/app';
-import { collection, addDoc, getFirestore,query, updateDoc,doc,getDocs } from "firebase/firestore"; 
+import { collection, addDoc, getFirestore, updateDoc,doc } from "firebase/firestore"; 
 
 
 
@@ -37,7 +37,7 @@ addDoc(collection(db, "order"), {
         stock: (x.stock - stocked)
       });
     })
-   
+    
     alert("Tu ID de compra es " + docRef.id)
 })
 .catch(function(error) {

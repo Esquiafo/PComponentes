@@ -27,7 +27,7 @@ const exitCart = ()=>{
   contextApi.email=email;
   contextApi.phone=phone;
   apiData(contextApi)
-  
+  context.clear()
 }
 
 

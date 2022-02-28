@@ -26,28 +26,35 @@ const ItemDetail = () => {
 
   
   if (finalData()!==undefined) {
-    filterItem.push(ultimateData.filter(x=>x.id==value.productId))
+    filterItem.push(ultimateData.filter(x=>x.id==value.productId && x.stock > 0))
   }
+  
   return (
     <div>
      
      {filterItem.length!==0 ? (
-       <div key={filterItem[0][0].id}>
-         <ul>
-         <li>ID = {filterItem[0][0].id}</li>
-         <li>Product = {filterItem[0][0].title}</li>
-         <li>Category = {filterItem[0][0].category}</li>
-         <li>Price = {filterItem[0][0].price}</li>
-         </ul>
-         <h3>Contador: {contador}</h3>
-         <h3>Stock: {ultimateData[value.productId-1].stock}</h3>
-         
-    <button onClick={increase}>+</button>
-    <button onClick={decrease}>-</button>
-    <Link to="/cart" >
-    <button onClick={onAdd} >Enviar</button>
-    </Link>
-       </div>
+      filterItem[0][0] == undefined ? (
+        <h1>
+          No disponible
+        </h1>
+      ) : (
+        <div key={filterItem[0][0].id}>
+        <ul>
+        <li>ID = {filterItem[0][0].id}</li>
+        <li>Product = {filterItem[0][0].title}</li>
+        <li>Category = {filterItem[0][0].category}</li>
+        <li>Price = {filterItem[0][0].price}</li>
+        </ul>
+        <h3>Contador: {contador}</h3>
+        <h3>Stock: {ultimateData[value.productId-1].stock}</h3>
+        
+   <button onClick={increase}>+</button>
+   <button onClick={decrease}>-</button>
+   <Link to="/cart" >
+   <button onClick={onAdd} >Enviar</button>
+   </Link>
+      </div>
+      )
        
       ) : (
         

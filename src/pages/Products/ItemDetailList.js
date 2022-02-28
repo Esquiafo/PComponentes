@@ -24,7 +24,17 @@ const Items = () => {
       <Table.Body>
         <Table.Row>
           <Table.Cell width={10}>Producto</Table.Cell>
-          <Table.Cell> <Link to={`/products/${product.id}`}>{product.title}</Link> </Table.Cell>
+          <Table.Cell> 
+          {product.stock <=0 ? (
+        <div>
+          {product.title}
+        </div>
+      ) : (
+        <Link to={`/products/${product.id}`}>{product.title}</Link> 
+      )}
+          
+          
+          </Table.Cell>
         </Table.Row>
         <Table.Row>
           <Table.Cell>Product ID</Table.Cell>
