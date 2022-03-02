@@ -2,15 +2,17 @@ import {Link, useParams} from "react-router-dom"
 import finalData from "../../Components/ProductsApi.js"
 import React, { useContext, useState } from 'react';
 import CartContext from "../../Context/CartContext"
-import { Dimmer, Loader, Image, Segment } from 'semantic-ui-react'
-
+import { Dimmer, Loader, Image, Segment, Icon, Table, Divider, Header } from 'semantic-ui-react'
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 
 const ItemDetail = () => {
   const ultimateData = finalData();
   const value = useParams();
   const [contador, setCounter] = useState(1)
+  let count=-1
   const filterItem=[]
+  
   const context = useContext(CartContext);
   const increase = ()=>{
     setCounter(contador==ultimateData[value.productId-1].stock ? contador+0 : contador+1)
@@ -24,10 +26,41 @@ const ItemDetail = () => {
     
   }
 
-  
+  let filterView
+
   if (finalData()!==undefined) {
     filterItem.push(ultimateData.filter(x=>x.id==value.productId && x.stock > 0))
-  }
+    if (filterItem[0][0].f1!==undefined) {
+      filterView = filterItem[0][0].f1.map(x=>{
+        count++
+        return(
+          <div key={count}>
+    
+
+    <Segment clearing>
+    <Header as='h2' floated='left'>
+      {x}
+      <Divider  vertical />
+    </Header>
+    
+
+    
+    <Header as='h2' floated='right'>
+    <Divider  vertical />
+     {filterItem[0][0].f2[count]}
+    </Header>
+  </Segment>
+
+            
+          </div>
+        )
+      })
+    }
+    
+
+}
+  
+
   
   return (
     <div>
@@ -40,21 +73,43 @@ const ItemDetail = () => {
       ) : (
         
         <div key={filterItem[0][0].id}>
-        <Image className="flex-wrap center " src={`${filterItem[0][0].img}`}size="small" rounded />
-        <ul>
-        <li>ID = {filterItem[0][0].id}</li>
-        <li>Product = {filterItem[0][0].title}</li>
-        <li>Category = {filterItem[0][0].category}</li>
-        <li>Price = {filterItem[0][0].price}</li>
-        </ul>
-        <h3>Contador: {contador}</h3>
-        <h3>Stock: {ultimateData[value.productId-1].stock}</h3>
+        <Container>
+          <Row xs={1} md={2}>
+            <Col>
+            <Image  src={`${filterItem[0][0].img}`} size="medium" rounded  />
+            <h2>Precio unitario: ${filterItem[0][0].price}</h2>
+            <h2>Cantidad:  <Button onClick={decrease}>-</Button> {contador}   <Button onClick={increase}>+</Button> <a style={{color: "grey"}}>(Disponibles: {ultimateData[value.productId-1].stock})</a></h2>
+          
+           
+          
+            <Link to="/cart" >
+            <Button onClick={onAdd} >Agregar al carrito</Button>
+            </Link>
         
-   <button onClick={increase}>+</button>
-   <button onClick={decrease}>-</button>
-   <Link to="/cart" >
-   <button onClick={onAdd} >Enviar</button>
-   </Link>
+            </Col>
+            <Col>
+            {filterView==undefined ? (null) : (<div>
+              
+              <Divider horizontal>
+               <Header as='h2'>
+                <Icon name='bar chart' />
+                Especificaciones
+               </Header>
+              </Divider>
+
+              {filterView}
+
+
+              </div>
+
+              )}
+  
+        
+            </Col>
+          </Row>
+        </Container>
+          
+
       </div>
       )
        

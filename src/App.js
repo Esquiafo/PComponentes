@@ -1,6 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./pages/Navbar/Navbar"
 import Index from "../src/pages/Index/Index"
 import Cart from "../src/pages/Shop/Cart"
@@ -17,10 +17,10 @@ function App() {
       <Navbar />
     </Switch>
       <Switch>
-        <Route exact path='/' exact component={Index} />
+        <Route exact path='/' component={Index} />
   
         <Route exact path="/products" component={Product}/>
-        <Route exact path="/products/:productId" component={SingleProduct}/>
+        <Route path="/products/:productId" component={SingleProduct}/>
         <Route path='/category/:categoryId' component={SingleCategory} />
 
         <Route exact path='/cart' component={Cart} />

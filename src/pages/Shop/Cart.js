@@ -4,8 +4,9 @@ import finalData from "../../Components/ProductsApi"
 import apiData from "../../Components/PushApi"
 import ApiContext from '../../Context/ApiContext';
 import { Link } from 'react-router-dom';
-import { Input, Image, Form } from 'semantic-ui-react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Input, Image, Form, Step, Icon, List } from 'semantic-ui-react';
+import { Container, Row, Col, Button  } from 'react-bootstrap';
+
 const Cart = () =>{
   const context = useContext(CartContext);
   const contextApi = useContext(ApiContext);
@@ -27,6 +28,7 @@ const Cart = () =>{
   let validEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email)
   let validName = /^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)/.test(name)
   let validPhone = /\b(?:\d[ ]*?){6,}\b/.test(phone)
+  
   const deleteId = (h)=>{
     context.eliminarId(h.target.value);
 }
@@ -58,20 +60,37 @@ context.items.map(x=> finalPrice= finalPrice + (x.cantidad*x.price))
       <Row> 
        <Col><Image className=' col-md-12' style={{width:"250px", height: "250px"}} src={`${product.img}`} rounded /></Col>
       <Col>
-      <ul  className='col-md-12 '>
-        <li>{lastValue[product.id-1].title}</li>
-        <li>
-          Cantidad: {product.cantidad}
-          <Link  to="/cart">
-           <button value={count} onClick={increase}>+</button>
-           <button value={count} onClick={decrease}>-</button>
-      </Link>
-        </li>
-        <li>Precio total: ${(lastValue[product.id-1].price)*(product.cantidad)}</li>
-      </ul>
-      <Link  to="/cart">
-      <button onClick={deleteId} value={count} >Borrar item</button>
-      </Link>
+        <List divided relaxed>
+          <List.Item>
+            <List.Content>
+              <List.Header>{lastValue[product.id-1].title}</List.Header>
+            </List.Content>
+          </List.Item>
+          <List.Item>
+            <List.Content>
+              <List.Header>Cantidad: {product.cantidad}</List.Header>
+              
+              <Link  to="/cart">
+           <Button value={count} onClick={increase}>+</Button>
+           <Button value={count} onClick={decrease}>-</Button>
+          </Link>
+            </List.Content>
+          </List.Item>
+          <List.Item>
+            <List.Content>
+              <List.Header>Precio total: ${(lastValue[product.id-1].price)*(product.cantidad)}</List.Header>
+            </List.Content>
+
+          </List.Item>
+          <List.Item>
+            <List.Content>
+            <Link  to="/cart">
+            <Button onClick={deleteId} value={count} >Borrar item</Button>
+            </Link>
+            </List.Content>
+          </List.Item>
+        </List>
+      
       </Col>
       </Row>
     </Container>
@@ -201,7 +220,7 @@ const form = () =>{
       </Col >
       <Col>
         <Link  to="/cart">
-           <button onClick={fullClear} >Borrar todo</button>
+           <Button onClick={fullClear} >Borrar todo</Button>
         </Link>
       </Col>
      </Row>
@@ -212,23 +231,69 @@ const form = () =>{
       </Col>
       <Col md={4}>
       {form()}
-      <Col md={6}>
-        <Container>
-          <Row>
+      <Col md={12}>
             <Col> 
-            <p>Precio articulos: ${finalPrice}</p>
-            <p> Iva 21%: ${finalPrice * 0.21} </p>
-             <p>Final: ${finalPrice+(finalPrice*0.21)}</p>
+            
+            <Container>
+            <Row xs={2} md={2}>
+            <Step.Group widths={2}>
+            <Step >
+
+            <Step.Content>
+            <Step.Title>Precio base</Step.Title>
+            </Step.Content>
+            </Step>
+            <Step >
+      
+            <Step.Content>
+            <Step.Title>${finalPrice}</Step.Title>
+            </Step.Content>
+            </Step>
+            </Step.Group>
+            </Row>
+
+            <Row xs={2} md={2}>
+            <Step.Group widths={2}>
+            <Step >
+
+            <Step.Content>
+            <Step.Title>IVA 21%</Step.Title>
+            </Step.Content>
+            </Step>
+            <Step >
+      
+            <Step.Content>
+            <Step.Title>${finalPrice*0.21}</Step.Title>
+            </Step.Content>
+            </Step>
+            </Step.Group>
+            </Row>
+      <Row xs={2} md={2}>
+            <Step.Group widths={2}>
+            <Step >
+
+            <Step.Content>
+            <Step.Title>Precio final</Step.Title>
+            </Step.Content>
+            </Step>
+            <Step >
+      
+            <Step.Content>
+            <Step.Title>${finalPrice+finalPrice*0.21}</Step.Title>
+            </Step.Content>
+            </Step>
+            </Step.Group>
+             </Row>
+            </Container>
+
             </Col>
             <Col>
             { (!validName || !validPhone || !validEmail ) ? (null) : (
         <Link to='/'>
-        <button onClick={exitCart}>Comprar</button>
+        <Button onClick={exitCart}>Comprar</Button>
         </Link>
      )}
             </Col>
-          </Row>
-        </Container>
       </Col>
     
       </Col>
