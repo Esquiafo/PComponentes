@@ -25,7 +25,7 @@ const CartContext = createContext({
           this.items.splice(h,1)
         },
         upCant (h) {
-          
+          console.log(h)
           if(this.items[h].cantidad==this.items[h].stock){
             alert("No se puede aumentar mas")
           }else{

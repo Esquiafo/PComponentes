@@ -77,7 +77,7 @@ const ItemDetail = () => {
             <Col xs={12} md={4}>
             <Image  src={`${filterItem[0][0].img}`} size="medium" rounded  centered/>
             <h2>Precio unitario: ${filterItem[0][0].price}</h2>
-            <h2>Cantidad:  <Button variant="outline-dark" onClick={decrease}>-</Button> {contador}   <Button variant="outline-dark" onClick={increase}>+</Button> <a style={{color: "grey"}}>(Disponibles: {filterItem[0][0].stock}) </a></h2>
+            <h3>Cantidad:  <Button variant="outline-dark" onClick={decrease}>-</Button> {contador}   <Button variant="outline-dark" onClick={increase}>+</Button> <a style={{color: "grey"}}>(Disponibles: {filterItem[0][0].stock}) </a></h3>
           
            
           

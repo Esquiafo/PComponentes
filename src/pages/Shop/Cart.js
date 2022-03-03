@@ -4,8 +4,9 @@ import finalData from "../../Components/ProductsApi"
 import apiData from "../../Components/PushApi"
 import ApiContext from '../../Context/ApiContext';
 import { Link } from 'react-router-dom';
-import { Input, Image, Form, Step, Icon, List, Label, Segment } from 'semantic-ui-react';
+import { Input, Image, Form, Step, Icon, List, Label, Segment, Header } from 'semantic-ui-react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import "./Cart.css"
 import AOS from 'aos';
 AOS.init({
   once: true,
@@ -18,6 +19,7 @@ const Cart = () =>{
   const lastValue=finalData()
   
   const increase = (h)=>{
+    console.log(h.target.value)
     context.upCant(h.target.value)
   }
   const decrease = (h)=>{
@@ -64,21 +66,22 @@ context.items.map(x=> finalPrice= finalPrice + (x.cantidad*x.price))
     <div key={product.id}>
       {lastValue!==undefined? (
       <Segment  style={{display: 'flex', justifyContent: 'center', marginTop: '10px'}}>
-   <Container><Row>
+   <Container><Row style={{justifyContent: "center"}}>
       <Col xs={6} md={3} style={{display: 'flex',paddingTop: '10px', justifyContent: 'center' }}><Image size='medium' src={`${product.img}`} rounded /></Col>
 
-      <Col xs={6} md={3} className="text-break" style={{display: 'flex',paddingTop: '10px', justifyContent: 'center', marginTop: 'auto',   marginBottom: 'auto', marginTop: 'auto',   marginBottom: 'auto'}}><h1>{product.title}</h1></Col>
+      <Col xs={6} md={3} className="text-break" style={{display: 'flex',paddingTop: '10px', justifyContent: 'center', marginTop: 'auto',   marginBottom: 'auto', marginTop: 'auto',   marginBottom: 'auto'}}><h2>{product.title}</h2></Col>
 
-      <Col  md={2}   style={{display: 'flex',paddingTop: '10px', justifyContent: 'center', marginTop: 'auto',   marginBottom: 'auto'}}>
+      <Col  md={3}   style={{display: 'flex',paddingTop: '10px', justifyContent: 'center', marginTop: 'auto',   marginBottom: 'auto'}}>
+ 
+        <Link style={{display:'flex'}} to="/cart">
 
-        <Col md={6}  style={{display: 'flex',paddingTop: '10px', justifyContent: 'center', marginTop: 'auto',   marginBottom: 'auto'}}><h3>{product.cantidad}</h3></Col> 
-        <Col xs={6} >
-          <Link  to="/cart">
-          <Col style={{width: '30px'}}> <Button style={{width: '35px'}} value={count} onClick={increase}>+</Button> </Col>
-          <Col style={{width: '30px'}}> <Button style={{width: '35px'}} value={count} onClick={decrease}>-</Button> </Col>
-          
-          </Link>
-        </Col>
+          <Button variant="danger"  style={{width: '35px'}} value={count} onClick={decrease}>-</Button>
+          <Input   style={{width: '65px', textAlign: 'center'}} value={product.cantidad}/>    
+          <Button variant="success" style={{width: '35px'}} value={count} onClick={increase}>+</Button>
+       
+        </Link> 
+ 
+        
       </Col>
 
       <Col  md={3} style={{display: 'flex',paddingTop: '10px', justifyContent: 'center', marginTop: 'auto',   marginBottom: 'auto'}}><h2><Label tag size={'big'} as='a'>${(product.price)*(product.cantidad)}</Label></h2></Col>
@@ -89,6 +92,10 @@ context.items.map(x=> finalPrice= finalPrice + (x.cantidad*x.price))
                 </Link>
 
       </Col>
+    
+
+
+
       </Row></Container>
       </Segment>
     
@@ -237,11 +244,14 @@ const form = () =>{
 
     {products.length!==0 ? (
     <Container>
-      <Row>
-      <Col sm={8}>
-          Carrito de compras
+      <Row style={{padding: '10px 0px 10px 0px'}}>
+      <Col style={{display: 'flex', justifyContent: 'center', paddingTop: '10px'}} sm={8}>
+      <Header as='h2'>
+        <Icon name='cart' />
+        <Header.Content>Carrito de compras</Header.Content>
+      </Header>
       </Col >
-      <Col>
+      <Col style={{display: 'flex', justifyContent: 'center', paddingTop: '10px'}}> 
         <Link  to="/cart">
            <Button variant="danger" onClick={fullClear} >Vaciar</Button>
         </Link>
@@ -291,7 +301,7 @@ const form = () =>{
             </Step>
             </Step.Group>
             </Row>
-      <Row xs={2} md={2}>
+            <Row xs={2} md={2}>
             <Step.Group widths={2}>
             <Step >
 

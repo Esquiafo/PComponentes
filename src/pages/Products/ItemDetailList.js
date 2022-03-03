@@ -1,8 +1,8 @@
 import FireBaseApi from "../../Components/ProductsApi"
 import { Link } from "react-router-dom";
-import {Image,  Divider, Header, Icon, Table, Segment, Label} from "semantic-ui-react"
+import {Image,  Divider, Header, Segment, Label} from "semantic-ui-react"
 import Category from '../Category/Category'
-import { Container, Row, Col, Button  } from 'react-bootstrap';
+import { Container, Row, Col  } from 'react-bootstrap';
 import AOS from 'aos';
 AOS.init();
 // className="justify-content-md-center"
@@ -39,7 +39,7 @@ const Items = () => {
       
       
       ) : (
-        <div>
+      <div>
         <div style={{display: "flex", justifyContent: "center"}}>
         <Label style={{alignSelf: "center"}} circular color={'red'} empty key={'red'} /> 
         <p> Sin stock | ${product.price}</p>
@@ -72,7 +72,7 @@ const Items = () => {
     }}>
       <Row>
       <Col md={1}> <Category /> </Col>
-      {data==undefined ? (
+      {data===undefined ? (
         <div>
           Cargando
         </div>
