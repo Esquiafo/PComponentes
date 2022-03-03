@@ -43,18 +43,14 @@ const Navbar= () =>{
 
   </button>
 
-  {/* Problemas para taer el numero actualizado */}
-  {context.items.length > 0 ? (
+
   <Link to="/cart">
     <Switch>
           <CartWidget />
     </Switch>
   </Link>
 
-    
-  ):(
-    null
-  )}
+
   
   
   </div>

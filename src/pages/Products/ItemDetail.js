@@ -21,9 +21,7 @@ const ItemDetail = () => {
     setCounter(contador==1 ? contador+0 : contador-1)
   }
   const onAdd = () =>{
-  
-    context.addItems({img: ultimateData[value.productId-1].img, id: ultimateData[value.productId-1].id, cantidad: contador, price:ultimateData[value.productId-1].price, title: ultimateData[value.productId-1].title, stock: ultimateData[value.productId-1].stock })
-    
+    ultimateData.find(x=> x.id==value.productId ? ( context.addItems({img: x.img, id: x.id, cantidad: contador, price:x.price, title: x.title, stock: x.stock }) ) : (null))
   }
 
   let filterView
@@ -33,21 +31,22 @@ const ItemDetail = () => {
     if (filterItem[0][0].f1!==undefined) {
       filterView = filterItem[0][0].f1.map(x=>{
         count++
+        
         return(
           <div key={count}>
     
 
     <Segment clearing>
-    <Header as='h2' floated='left'>
-      {x}
+    <Header as='h3' floated='left'>
+      <span>{x}</span>
       <Divider  vertical />
     </Header>
     
 
     
-    <Header as='h2' floated='right'>
+    <Header as='h3' floated='right' style={{backgroundColor: ""}}>
     <Divider  vertical />
-     {filterItem[0][0].f2[count]}
+     <span>{filterItem[0][0].f2[count]}</span>
     </Header>
   </Segment>
 
@@ -74,20 +73,20 @@ const ItemDetail = () => {
         
         <div key={filterItem[0][0].id}>
         <Container>
-          <Row xs={1} md={2}>
-            <Col>
-            <Image  src={`${filterItem[0][0].img}`} size="medium" rounded  />
+          <Row style={{display: 'flex', justifyContent: "center"}}>
+            <Col xs={12} md={4}>
+            <Image  src={`${filterItem[0][0].img}`} size="medium" rounded  centered/>
             <h2>Precio unitario: ${filterItem[0][0].price}</h2>
-            <h2>Cantidad:  <Button onClick={decrease}>-</Button> {contador}   <Button onClick={increase}>+</Button> <a style={{color: "grey"}}>(Disponibles: {ultimateData[value.productId-1].stock})</a></h2>
+            <h2>Cantidad:  <Button variant="outline-dark" onClick={decrease}>-</Button> {contador}   <Button variant="outline-dark" onClick={increase}>+</Button> <a style={{color: "grey"}}>(Disponibles: {filterItem[0][0].stock}) </a></h2>
           
            
           
             <Link to="/cart" >
-            <Button onClick={onAdd} >Agregar al carrito</Button>
+            <Button variant="success" onClick={onAdd} >Agregar al carrito</Button>
             </Link>
         
             </Col>
-            <Col>
+            <Col  xs={12} md={8}>
             {filterView==undefined ? (null) : (<div>
               
               <Divider horizontal>

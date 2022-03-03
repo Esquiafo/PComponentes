@@ -22,7 +22,7 @@ const CartContext = createContext({
         },
         // Funcion que borra un ID especifico
         eliminarId (h) {
-          this.items.splice(h,h+1)
+          this.items.splice(h,1)
         },
         upCant (h) {
           
