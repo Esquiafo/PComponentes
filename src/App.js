@@ -17,12 +17,12 @@ function App() {
       <Navbar />
     </Switch>
       <Switch>
-        <Route exact path='/PComponentes' component={Index} />
+        <Route exact path='/' component={Index} />
   
-        <Route exact path="/PComponentes/products" component={Product}/>
-        <Route exact path="/PComponentes/category" component={Category}/>
-        <Route path="/PComponentes/products/:productId" component={SingleProduct}/>
-        <Route path='/PComponentes/category/:categoryId' component={SingleCategory} />
+        <Route exact path="/products" component={Product}/>
+        <Route exact path="/category" component={Category}/>
+        <Route path="/products/:productId" component={SingleProduct}/>
+        <Route path='/category/:categoryId' component={SingleCategory} />
 
         <Route exact path='/cart' component={Cart} />
       </Switch>

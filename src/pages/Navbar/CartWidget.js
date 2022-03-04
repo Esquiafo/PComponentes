@@ -9,9 +9,8 @@ const CartWidget= () =>{
   return(
    
 
-  <button type="button" className="btn position-relative ui animated button">
-
-  <div className="visible content">
+    <Link to="/cart">
+      <div className="visible content">
    Shop <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">{itemspush}</span>
 
   </div>
@@ -19,8 +18,10 @@ const CartWidget= () =>{
   <i className="shop icon"></i>
   </div>
 
+    </Link>
+
   
-  </button>
+
       
   
   
