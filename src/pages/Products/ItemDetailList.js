@@ -21,7 +21,7 @@ const Items = () => {
       <Segment>
       <Header>
       {product.stock >=1 ? (
-        <Link to={`/PComponentes/products/${product.id}`}><h6 style={{justifyContent: 'center', display: 'flex'}}>{product.title}</h6></Link>
+        <Link to={`/products/${product.id}`}><h6 style={{justifyContent: 'center', display: 'flex'}}>{product.title}</h6></Link>
       ) : (<h6 style={{justifyContent: 'center', display: 'flex'}}>{product.title}</h6>)}  
       </Header>
       <Divider clearing />

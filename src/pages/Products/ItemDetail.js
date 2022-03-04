@@ -81,7 +81,7 @@ const ItemDetail = () => {
           
            
           
-            <Link to="/PComponentes/cart" >
+            <Link to="/cart" >
             <Button variant="success" onClick={onAdd} >Agregar al carrito</Button>
             </Link>
         
