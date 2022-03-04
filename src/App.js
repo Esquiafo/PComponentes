@@ -21,7 +21,7 @@ function App() {
   
         <Route exact path="/products" component={Product}/>
         <Route exact path="/category" component={Category}/>
-        <Route exact path="/products/:productId" component={SingleProduct}/>
+        <Route path="/products/:productId" component={SingleProduct}/>
         <Route path='/category/:categoryId' component={SingleCategory} />
 
         <Route exact path='/cart' component={Cart} />

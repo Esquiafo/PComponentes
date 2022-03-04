@@ -21,7 +21,7 @@ const Navbar= () =>{
 
   </button>
 
-  {/* <button className="btn ui animated button" type="button">
+  <button className="btn ui animated button" type="button">
 
   <Link  to="/category">
   <div className="visible content">Category</div>
@@ -30,7 +30,7 @@ const Navbar= () =>{
   </div>
   </Link>
 
-  </button> */}
+  </button>
 
   <button className="btn ui animated button" type="button">
     
