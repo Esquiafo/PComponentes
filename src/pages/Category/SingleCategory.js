@@ -22,7 +22,7 @@ const SingleCategory = () => {
       <Segment>
       <Header>
       {x.stock >=1 ? (
-        <Link to={`/products/${x.id}`}><h6>{x.title}</h6></Link>
+        <Link to={`/PComponentes/products/${x.id}`}><h6>{x.title}</h6></Link>
       ) : (<h6>{x.title}</h6>)}  
       </Header>
       <Divider clearing />

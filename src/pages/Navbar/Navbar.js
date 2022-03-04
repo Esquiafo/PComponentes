@@ -23,7 +23,7 @@ const Navbar= () =>{
 
   <button className="btn ui animated button" type="button">
 
-  <Link  to="/category">
+  <Link  to="/PComponentes/category">
   <div className="visible content">Category</div>
   <div className="hidden content">
   <i className="chat icon"></i>
@@ -34,7 +34,7 @@ const Navbar= () =>{
 
   <button className="btn ui animated button" type="button">
     
-  <Link  to="/products">
+  <Link  to="/PComponentes/products">
   <div className="visible content">Productos</div>
   <div className="hidden content">
   <i className="tag icon"></i>
@@ -44,7 +44,7 @@ const Navbar= () =>{
   </button>
 
 
-  <Link to="/cart">
+  <Link to="/PComponentes/cart">
     <Switch>
           <CartWidget />
     </Switch>

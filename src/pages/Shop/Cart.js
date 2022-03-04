@@ -73,7 +73,7 @@ context.items.map(x=> finalPrice= finalPrice + (x.cantidad*x.price))
 
       <Col  md={3}   style={{display: 'flex',paddingTop: '10px', justifyContent: 'center', marginTop: 'auto',   marginBottom: 'auto'}}>
  
-        <Link style={{display:'flex'}} to="/cart">
+        <Link style={{display:'flex'}} to="/PComponentes/cart">
 
           <Button variant="danger"  style={{width: '35px'}} value={count} onClick={decrease}>-</Button>
           <Input   style={{width: '65px', textAlign: 'center'}} value={product.cantidad}/>    
@@ -86,7 +86,7 @@ context.items.map(x=> finalPrice= finalPrice + (x.cantidad*x.price))
 
       <Col  md={3} style={{display: 'flex',paddingTop: '10px', justifyContent: 'center', marginTop: 'auto',   marginBottom: 'auto'}}><h2><Label tag size={'big'} as='a'>${(product.price)*(product.cantidad)}</Label></h2></Col>
       <Col  md={1}  style={{display: 'flex',paddingTop: '10px', justifyContent: 'center', marginTop: 'auto',   marginBottom: 'auto'}}>
-                <Link  to="/cart">
+                <Link  to="/PComponentes/cart">
           
                 <Label circular color={'red'} onClick={deleteId} value={count}  key={'red'}>X</Label>
                 </Link>
@@ -252,7 +252,7 @@ const form = () =>{
       </Header>
       </Col >
       <Col style={{display: 'flex', justifyContent: 'center', paddingTop: '10px'}}> 
-        <Link  to="/cart">
+        <Link  to="/PComponentes/cart">
            <Button variant="danger" onClick={fullClear} >Vaciar</Button>
         </Link>
       </Col>
@@ -322,7 +322,7 @@ const form = () =>{
             </Col>
             <Col>
             { (!validEmailEmail || !validName || !validPhone || !validEmail ) ? (null) : (
-        <Link to='/'>
+        <Link to='/PComponentes'>
         <Button variant="success" onClick={exitCart}>Comprar</Button>
         </Link>
      )}
